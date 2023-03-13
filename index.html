@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // -------Task 1. Создать функцию calculate(operand1, operand2, sign)...
+
+      function calculate(operand1, operand2, sign) {
+        let operand1 = +prompt("Enter the 1st number:");
+        let sign = prompt("Enter operation sign (+ - * /)");
+        let operand2 = +prompt("Enter the 2nd number:");
+        let result;
+
+        switch (sign) {
+          case "+":
+            result = operand1 + operand2;
+            break;
+          case "-":
+            result = operand1 - operand2;
+            break;
+          case "*":
+            result = operand1 * operand2;
+            break;
+          case "/":
+            if (operand2 == 0) {
+              document.write("Error! Cannot devide by " + operand2);
+            } else {
+              result = operand1 / operand2;
+            }
+            break;
+          default:
+            document.write(
+              "<pstyle='color:red'>" +
+                sign +
+                " - cannot be applied to arythemitc operations!</p>"
+            );
+        }
+        if (result != undefined) {
+          document.write("Result: " + result);
+        }
+      }
+
+      calculate();
+
+      // ---------Task3.  Создать игру "Камень-Ножницы-Бумага".
+
+      let computerChoice = Math.round(Math.random() * 3);
+      function game() {
+        let userChoice = prompt(
+          "Нажмите соответсвующуюю цифру : камень (0), ножницы (1) или бумага (2)"
+        );
+        switch (computerChoice) {
+          case 0:
+            if (userChoice == 1) {
+              alert("Вы проиграли! У меня " + "камень.");
+            } else if (userChoice == 2) {
+              alert("Вы выиграли! У меня " + "камень.");
+            } else {
+              alert("Ничья! У меня " + "камень.");
+            }
+            break;
+
+          case 1:
+            if (userChoice == 2) {
+              alert("Вы проиграли! У меня " + "ножницы.");
+            } else if (userChoice == 0) {
+              alert("Вы выиграли! У меня " + "ножницы.");
+            } else {
+              alert("Ничья! У меня " + "ножницы.");
+            }
+            break;
+          case 2:
+            if (userChoice == 0) {
+              alert("Вы проиграли! У меня " + "бумага.");
+            } else if (userChoice == 1) {
+              alert("Вы выиграли! У меня " + "бумага.");
+            } else {
+              alert("Ничья! У меня " + "бумага.");
+            }
+            break;
+        }
+
+        if (confirm("Хотите еще раз играть?")) {
+          game();
+        }
+      }
+      game();
+
+      //-----------Task 4.Напишите функцию, которая возвращает n-е число Фибоначчи. Для решения используйте цикл.
+
+      function getFibonacciNumber() {
+        let n = +prompt("Enter n ");
+        let i = 1;
+        let n1 = 0;
+        let n2 = 1;
+        let f = n1 + n2;
+        if (n == 1) {
+          document.write("Fibonacci n = " + n1);
+        } else if (n == 2) {
+          document.write("Fibonacci n = " + n2);
+        } else {
+          while (i <= n) {
+            f = n1 + n2;
+            n1 = n2;
+            n2 = f;
+            i++;
+          }
+          document.write("Your Fibonacci number is: " + f);
+        }
+      }
+      getFibonacciNumber();
+    </script>
+  </body>
+</html>
